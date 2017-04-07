@@ -1,0 +1,794 @@
+<dataSource name="MySQL - dachuang@whyangser.com">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="dachuang">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema" />
+    <schema id="3" name="mysql" />
+    <schema id="4" name="performance_schema" />
+    <schema id="5" name="struts2" />
+    <schema id="6" name="xusong" />
+    <schema id="7" name="DOP1-RUA" />
+    <schema id="8" name="FoodOrderSystem" />
+    <schema id="9" name="旅游大创数据" />
+    <table id="10" parent="1" name="BranchComany" />
+    <table id="11" parent="1" name="BranchCompanyCollection" />
+    <table id="12" parent="1" name="BranchCompanyComment" />
+    <table id="13" parent="1" name="Brand" />
+    <table id="14" parent="1" name="Case1" />
+    <table id="15" parent="1" name="HeadCompany" />
+    <table id="16" parent="1" name="HeadCompanyCollection" />
+    <table id="17" parent="1" name="HeadCompanyComment" />
+    <table id="18" parent="1" name="Score" />
+    <table id="19" parent="1" name="User1" />
+    <table id="20" parent="1" name="business" />
+    <table id="21" parent="1" name="companybus" />
+    <table id="22" parent="1" name="patent" />
+    <table id="23" parent="1" name="production" />
+    <table id="24" parent="1" name="software" />
+    <table id="25" parent="1" name="Rights12315" />
+    <table id="26" parent="1" name="host" />
+    <table id="27" parent="1" name="recruitment" />
+    <view id="28" parent="1" name="Search">
+      <comment>VIEW</comment>
+    </view>
+    <column id="29" parent="10" name="BCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="30" parent="10" name="BCname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="31" parent="10" name="HCname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="32" parent="10" name="legalperson">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="33" parent="10" name="enterprise_type">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="34" parent="10" name="date">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="35" parent="10" name="addnum">
+      <comment>分部的行政划分</comment>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="36" parent="10" name="category">
+      <data-type>char(2)|0</data-type>
+    </column>
+    <column id="37" parent="10" name="state">
+      <data-type>char(2)|0</data-type>
+    </column>
+    <column id="38" parent="10" name="address">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="39" parent="10" name="HCname">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="40" parent="10" name="PRIMARY">
+      <columns>BCid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="41" parent="10" name="HCname">
+      <columns>HCname</columns>
+      <ref-key>dachuang.HeadCompany(HCname)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="42" parent="11" name="BranchCompanyCollid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="43" parent="11" name="Uid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="44" parent="11" name="BCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="45" parent="11" name="star">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="46" parent="11" name="FKem5e1pe931oqekr73l9hmm352">
+      <columns>Uid</columns>
+      <desc-columns />
+    </index>
+    <index id="47" parent="11" name="FKpa5rmir5grtbojiw5v67ud2l9">
+      <columns>BCid</columns>
+      <desc-columns />
+    </index>
+    <key id="48" parent="11" name="PRIMARY">
+      <columns>BranchCompanyCollid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="49" parent="11" name="FKem5e1pe931oqekr73l9hmm352">
+      <columns>Uid</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="50" parent="11" name="tghj">
+      <columns>Uid</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="51" parent="11" name="bnm">
+      <columns>BCid</columns>
+      <ref-key>~.BranchComany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="52" parent="11" name="FKpa5rmir5grtbojiw5v67ud2l9">
+      <columns>BCid</columns>
+      <ref-key>~.BranchComany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="53" parent="12" name="bccid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="54" parent="12" name="uid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="55" parent="12" name="bcid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="56" parent="12" name="comments">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="57" parent="12" name="rate">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="58" parent="12" name="FKasdatlefqjall90c9p5kexrte">
+      <columns>uid</columns>
+      <desc-columns />
+    </index>
+    <index id="59" parent="12" name="FKir3fhbbm57qwj03ssah0jm8cb">
+      <columns>bcid</columns>
+      <desc-columns />
+    </index>
+    <key id="60" parent="12" name="PRIMARY">
+      <columns>bccid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="61" parent="12" name="FKasdatlefqjall90c9p5kexrte">
+      <columns>uid</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="62" parent="12" name="yj">
+      <columns>uid</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="63" parent="12" name="FKir3fhbbm57qwj03ssah0jm8cb">
+      <columns>bcid</columns>
+      <ref-key>~.BranchComany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="64" parent="12" name="jd">
+      <columns>bcid</columns>
+      <ref-key>~.BranchComany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="65" parent="13" name="Bid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="66" parent="13" name="Bname">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="67" parent="13" name="LogDate">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="68" parent="13" name="HCname">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="69" parent="13" name="BR">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="70" parent="13" name="PRIMARY">
+      <columns>Bid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="71" parent="13" name="BR">
+      <columns>HCname</columns>
+      <ref-key>dachuang.HeadCompany(HCname)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="72" parent="14" name="Caseid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="73" parent="14" name="HCname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="74" parent="14" name="cause">
+      <mandatory>1</mandatory>
+      <data-type>varchar(1000)|0</data-type>
+    </column>
+    <column id="75" parent="14" name="value">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="76" parent="14" name="date">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="77" parent="14" name="type">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="78" parent="14" name="act">
+      <mandatory>1</mandatory>
+      <data-type>varchar(500)|0</data-type>
+    </column>
+    <column id="79" parent="14" name="accroding">
+      <mandatory>1</mandatory>
+      <data-type>varchar(500)|0</data-type>
+    </column>
+    <column id="80" parent="14" name="punishreason">
+      <data-type>varchar(1000)|0</data-type>
+    </column>
+    <index id="81" parent="14" name="aas">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="82" parent="14" name="PRIMARY">
+      <columns>Caseid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="83" parent="14" name="aas">
+      <columns>HCname</columns>
+      <ref-key>dachuang.HeadCompany(HCname)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="84" parent="15" name="HCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="85" parent="15" name="HCname">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="86" parent="15" name="HCadd">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="87" parent="15" name="HCname">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="88" parent="15" name="PRIMARY">
+      <columns>HCid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="89" parent="16" name="HeadCompanyCollid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="90" parent="16" name="UID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="91" parent="16" name="HCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="92" parent="16" name="star">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="93" parent="16" name="FK1r7o8j3htn9r4uefnslfct09d">
+      <columns>HCid</columns>
+      <desc-columns />
+    </index>
+    <index id="94" parent="16" name="FKnr0nypc6dpeomy2rjoy9g9ghx">
+      <columns>UID</columns>
+      <desc-columns />
+    </index>
+    <key id="95" parent="16" name="PRIMARY">
+      <columns>HeadCompanyCollid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="96" parent="16" name="FKnr0nypc6dpeomy2rjoy9g9ghx">
+      <columns>UID</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="97" parent="16" name="n1">
+      <columns>UID</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="98" parent="16" name="FK1r7o8j3htn9r4uefnslfct09d">
+      <columns>HCid</columns>
+      <ref-key>~.HeadCompany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="99" parent="16" name="n2">
+      <columns>HCid</columns>
+      <ref-key>~.HeadCompany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="100" parent="17" name="CID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="101" parent="17" name="UID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="102" parent="17" name="HCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="103" parent="17" name="comments">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="104" parent="17" name="rate">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="105" parent="17" name="FK57023nmuf7f0hqeoyor3lnjdu">
+      <columns>UID</columns>
+      <desc-columns />
+    </index>
+    <index id="106" parent="17" name="FKmxty6mkkmkc5d7aefwr3cxdef">
+      <columns>HCid</columns>
+      <desc-columns />
+    </index>
+    <key id="107" parent="17" name="PRIMARY">
+      <columns>CID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="108" parent="17" name="FK57023nmuf7f0hqeoyor3lnjdu">
+      <columns>UID</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="109" parent="17" name="HC_com_u">
+      <columns>UID</columns>
+      <ref-key>~.User1.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="110" parent="17" name="FKmxty6mkkmkc5d7aefwr3cxdef">
+      <columns>HCid</columns>
+      <ref-key>~.HeadCompany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="111" parent="17" name="HC_com_b">
+      <columns>HCid</columns>
+      <ref-key>~.HeadCompany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="112" parent="18" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="113" parent="18" name="HCname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="114" parent="18" name="Finace">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="115" parent="18" name="Branch">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="116" parent="18" name="Revoke">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="117" parent="18" name="Cancellation">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="118" parent="18" name="Website">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="119" parent="18" name="Practitioners">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="120" parent="18" name="Recruit">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="121" parent="18" name="Complaint">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="122" parent="18" name="Involved">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="123" parent="18" name="Court">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="124" parent="18" name="Sentence">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="125" parent="18" name="Book">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="126" parent="18" name="Software">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="127" parent="18" name="Patent">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="128" parent="18" name="Trademark">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="129" parent="18" name="FSituation">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="130" parent="18" name="Personnel">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="131" parent="18" name="Negative">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="132" parent="18" name="Innovate">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="133" parent="18" name="Tolal">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="134" parent="18" name="Score-1">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="135" parent="18" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="136" parent="19" name="UID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="137" parent="19" name="Uname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="138" parent="19" name="Upassword">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="139" parent="19" name="Unickname">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="140" parent="19" name="Uemail">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="141" parent="19" name="Uphone">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <key id="142" parent="19" name="PRIMARY">
+      <columns>UID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="143" parent="20" name="tag">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="144" parent="20" name="business">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="145" parent="20" name="PRIMARY">
+      <columns>tag</columns>
+      <primary>1</primary>
+    </key>
+    <column id="146" parent="21" name="relationNO">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="147" parent="21" name="tag">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="148" parent="21" name="BCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="149" parent="21" name="FK3y2k15leje8mg9kquop04oap5">
+      <columns>tag</columns>
+      <desc-columns />
+    </index>
+    <index id="150" parent="21" name="FKn3oscxj7k05wl9ge7frxvysox">
+      <columns>BCid</columns>
+      <desc-columns />
+    </index>
+    <key id="151" parent="21" name="PRIMARY">
+      <columns>relationNO</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="152" parent="21" name="FK3y2k15leje8mg9kquop04oap5">
+      <columns>tag</columns>
+      <ref-key>~.business.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="153" parent="21" name="hdxs">
+      <columns>tag</columns>
+      <ref-key>~.business.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="154" parent="21" name="dddwsd">
+      <columns>BCid</columns>
+      <ref-key>~.BranchComany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="155" parent="21" name="FKn3oscxj7k05wl9ge7frxvysox">
+      <columns>BCid</columns>
+      <ref-key>~.BranchComany.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="156" parent="22" name="Pid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="157" parent="22" name="LogDate">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="158" parent="22" name="PatentNo">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="159" parent="22" name="Pname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="160" parent="22" name="MainNo">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="161" parent="22" name="TypeNo">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="162" parent="22" name="HCname">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="163" parent="22" name="Pa_HC">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="164" parent="22" name="PRIMARY">
+      <columns>Pid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="165" parent="22" name="Pa_HC">
+      <columns>HCname</columns>
+      <ref-key>dachuang.HeadCompany(HCname)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="166" parent="23" name="proid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="167" parent="23" name="proName">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="168" parent="23" name="HCname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="169" parent="23" name="logDate">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <index id="170" parent="23" name="3">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="171" parent="23" name="PRIMARY">
+      <columns>proid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="172" parent="23" name="3">
+      <columns>HCname</columns>
+      <ref-key>dachuang.HeadCompany(HCname)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="173" parent="24" name="Sid">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="174" parent="24" name="industryType">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="175" parent="24" name="Stype">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="176" parent="24" name="Sname">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="177" parent="24" name="SbriefName">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="178" parent="24" name="version">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="179" parent="24" name="logDate">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="180" parent="24" name="HCname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="181" parent="24" name="4">
+      <columns>HCname</columns>
+      <desc-columns />
+    </index>
+    <key id="182" parent="24" name="PRIMARY">
+      <columns>Sid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="183" parent="24" name="4">
+      <columns>HCname</columns>
+      <ref-key>dachuang.HeadCompany(HCname)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="184" parent="25" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="185" parent="25" name="serviceType">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="186" parent="25" name="basicProblem">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="187" parent="25" name="mainProblem">
+      <data-type>varchar(1000)|0</data-type>
+    </column>
+    <column id="188" parent="25" name="simpleDiscription">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="189" parent="25" name="entityName">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="190" parent="25" name="entityType">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="191" parent="25" name="infoType">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="192" parent="25" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="193" parent="26" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="194" parent="26" name="HCname">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="195" parent="26" name="year">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="196" parent="26" name="siteType">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="197" parent="26" name="siteName">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="198" parent="26" name="host">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="199" parent="26" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="200" parent="27" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="201" parent="27" name="post">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="202" parent="27" name="FZL_GZJY">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="203" parent="27" name="FZL_ZDXL">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="204" parent="27" name="FZL_GLJY">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="205" parent="27" name="FZL_GZXZ">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="206" parent="27" name="total">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="207" parent="27" name="salary">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="208" parent="27" name="entityName">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="209" parent="27" name="date">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="210" parent="27" name="QYLX">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="211" parent="27" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="212" parent="28" name="HCname">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="213" parent="28" name="BCname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="214" parent="28" name="legalperson">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="215" parent="28" name="BCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <column id="216" parent="28" name="HCid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <column id="217" parent="28" name="business">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+  </database-model>
+</dataSource>
